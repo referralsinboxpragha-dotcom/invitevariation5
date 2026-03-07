@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praghadeesh & Shalini — Engagement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Tamil:wght@300;400;500&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9974A;
+    --gold-light: #E8C27A;
+    --gold-pale: #F5E6C8;
+    --deep: #1A0F08;
+    --maroon: #6B1A1A;
+    --maroon-soft: #8B3A3A;
+    --cream: #FAF5EC;
+    --ivory: #FDF9F2;
+    --text-dark: #2C1810;
+    --text-mid: #5A3C2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #0e0a06;
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    background: var(--ivory);
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(201,151,74,0.4),
+      0 0 40px rgba(201,151,74,0.15),
+      0 40px 120px rgba(0,0,0,0.8);
+    animation: cardReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes cardReveal {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── TOP DECORATIVE BAND ── */
+  .top-band {
+    background: var(--maroon);
+    height: 6px;
+    background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--maroon) 100%);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(170deg, #1A0F08 0%, #2e1810 50%, #1a0a08 100%);
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Mandala background watermark */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(201,151,74,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* SVG kolam / geometric pattern overlay */
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 4 L76 40 L40 76 L4 40 Z' fill='none' stroke='%23C9974A' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='24' fill='none' stroke='%23C9974A' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%23C9974A' stroke-width='0.5'/%3E%3Cpath d='M40 16 L40 64 M16 40 L64 40' stroke='%23C9974A' stroke-width='0.4'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  /* Ornamental top divider */
+  .ornament-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: fadeUp 1s 0.3s both;
+  }
+
+  .ornament-line {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .ornament-line.right {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .blessing-text {
+    font-family: 'Noto Serif Tamil', serif;
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+    margin-bottom: 24px;
+    animation: fadeUp 1s 0.4s both;
+    opacity: 0.85;
+  }
+
+  .announce-label {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 9.5px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    animation: fadeUp 1s 0.5s both;
+  }
+
+  /* Names */
+  .names-block {
+    animation: fadeUp 1s 0.6s both;
+  }
+
+  .name-primary {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-pale);
+    font-size: clamp(38px, 9vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+
+  .name-primary span {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    font-size: clamp(28px, 6vw, 36px);
+    display: block;
+    line-height: 1.2;
+    margin: 4px 0;
+  }
+
+  /* Lotus / floral SVG divider */
+  .lotus-divider {
+    margin: 22px auto 0;
+    display: block;
+    animation: fadeUp 1s 0.8s both;
+  }
+
+  /* ── BODY ── */
+  .body-section {
+    background: var(--ivory);
+    padding: 36px 36px 28px;
+    position: relative;
+  }
+
+  /* Inner border frame */
+  .body-section::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(201,151,74,0.2);
+    pointer-events: none;
+  }
+
+  /* Corner ornaments */
+  .corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .corner.tl { top: 8px; left: 8px; border-width: 1.5px 0 0 1.5px; }
+  .corner.tr { top: 8px; right: 8px; border-width: 1.5px 1.5px 0 0; }
+  .corner.bl { bottom: 8px; left: 8px; border-width: 0 0 1.5px 1.5px; }
+  .corner.br { bottom: 8px; right: 8px; border-width: 0 1.5px 1.5px 0; }
+
+  .body-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .invite-prose {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 400;
+    margin-bottom: 28px;
+    animation: fadeUp 1s 0.9s both;
+  }
+
+  /* ── DATE / TIME BLOCK ── */
+  .event-block {
+    background: linear-gradient(135deg, #f9f3e8 0%, #fdf8f0 100%);
+    border: 1px solid rgba(201,151,74,0.3);
+    padding: 24px 20px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeUp 1s 1s both;
+  }
+
+  .event-block::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(201,151,74,0.12);
+    pointer-events: none;
+  }
+
+  .event-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .event-row:last-child { margin-bottom: 0; }
+
+  .event-icon {
+    color: var(--gold);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .event-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8.5px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .event-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .event-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    color: var(--text-mid);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  .event-divider {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, rgba(201,151,74,0.4), transparent);
+    flex-shrink: 0;
+  }
+
+  /* ── LOCATION ── */
+  .location-block {
+    margin-bottom: 28px;
+    animation: fadeUp 1s 1.1s both;
+  }
+
+  .location-title {
+    font-family: 'Cinzel', serif;
+    font-size: 8.5px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .location-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .location-city {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: var(--text-mid);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    background: var(--maroon);
+    color: var(--gold-pale);
+    text-decoration: none;
+    padding: 10px 22px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(201,151,74,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .map-btn:hover {
+    background: #7a2020;
+    box-shadow: 0 4px 20px rgba(107,26,26,0.3);
+  }
+
+  .map-btn:hover::before { transform: translateX(100%); }
+
+  .map-btn svg {
+    width: 12px;
+    height: 12px;
+    fill: var(--gold-light);
+  }
+
+  /* ── DIVIDER ORNAMENT ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .div-line {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, rgba(201,151,74,0.4));
+  }
+  .div-line.r { background: linear-gradient(90deg, rgba(201,151,74,0.4), transparent); }
+
+  .div-icon {
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--maroon);
+    padding: 20px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,151,74,0.08) 0%, transparent 60%);
+  }
+
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(245,230,200,0.75);
+    font-size: 13px;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .footer-tamil {
+    font-family: 'Noto Serif Tamil', serif;
+    color: var(--gold-light);
+    font-size: 12px;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+    position: relative;
+    opacity: 0.9;
+  }
+
+  /* ── BOTTOM BAND ── */
+  .bottom-band {
+    height: 6px;
+    background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--maroon) 100%);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    body { padding: 12px; }
+    .hero { padding: 36px 24px 30px; }
+    .body-section { padding: 28px 24px 24px; }
+    .event-row { flex-direction: column; gap: 8px; }
+    .event-divider { width: 40px; height: 1px; }
+    .footer { padding: 18px 24px; }
+    .body-section::before { inset: 8px; }
+    .map-btn { padding: 10px 18px; }
+  }
+
+  @media (min-width: 600px) {
+    .card { border-radius: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Top accent band -->
+  <div class="top-band"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-inner">
+
+      <!-- Top ornament -->
+      <div class="ornament-top">
+        <div class="ornament-line"></div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+          <path d="M12 2 C12 2 14 6 12 8 C10 6 12 2 12 2Z M12 22 C12 22 10 18 12 16 C14 18 12 22 12 22Z M2 12 C2 12 6 10 8 12 C6 14 2 12 2 12Z M22 12 C22 12 18 14 16 12 C18 10 22 12 22 12Z" fill="#C9974A" opacity="0.9"/>
+          <circle cx="12" cy="12" r="3" fill="#C9974A" opacity="0.6"/>
+          <circle cx="12" cy="12" r="1.5" fill="#E8C27A"/>
+        </svg>
+        <div class="ornament-line right"></div>
+      </div>
+
+      <!-- Tamil blessing -->
+      <div class="blessing-text">ஓம் நமசிவாய — With Blessings of the Almighty</div>
+
+      <!-- Announce label -->
+      <div class="announce-label">Joyfully announce</div>
+
+      <!-- Names -->
+      <div class="names-block">
+        <div class="name-primary"><span>Praghadeesh</span></div>
+        <span class="ampersand">&</span>
+        <div class="name-primary"><span>Shalini Devi</span></div>
+      </div>
+
+      <!-- Lotus SVG -->
+      <svg class="lotus-divider" width="120" height="32" viewBox="0 0 120 32" fill="none">
+        <!-- Left petal group -->
+        <path d="M28 22 Q20 8 32 4 Q30 14 38 18" fill="rgba(201,151,74,0.2)" stroke="#C9974A" stroke-width="0.8"/>
+        <path d="M22 24 Q12 12 22 6 Q22 18 32 20" fill="rgba(201,151,74,0.12)" stroke="#C9974A" stroke-width="0.6"/>
+        <!-- Center -->
+        <path d="M48 24 Q44 8 60 4 Q76 8 72 24" fill="rgba(201,151,74,0.18)" stroke="#C9974A" stroke-width="0.9"/>
+        <path d="M53 24 Q50 12 60 8 Q70 12 67 24" fill="rgba(201,151,74,0.25)" stroke="#C9974A" stroke-width="0.8"/>
+        <!-- Right petal group -->
+        <path d="M92 22 Q100 8 88 4 Q90 14 82 18" fill="rgba(201,151,74,0.2)" stroke="#C9974A" stroke-width="0.8"/>
+        <path d="M98 24 Q108 12 98 6 Q98 18 88 20" fill="rgba(201,151,74,0.12)" stroke="#C9974A" stroke-width="0.6"/>
+        <!-- Stem line -->
+        <line x1="60" y1="24" x2="60" y2="32" stroke="#C9974A" stroke-width="0.8" opacity="0.5"/>
+        <!-- Center dot -->
+        <circle cx="60" cy="20" r="2.5" fill="#C9974A" opacity="0.7"/>
+      </svg>
+
+    </div>
+  </div>
+
+  <!-- ═══ BODY ═══ -->
+  <div class="body-section">
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="body-inner">
+
+      <!-- Invite text -->
+      <p class="invite-prose">
+        The families of Praghadeesh and Shalini<br>
+        joyfully invite you to celebrate<br>
+        the auspicious occasion of their
+        <em style="color:var(--maroon-soft); font-size:1.05em;">Engagement Ceremony</em>
+      </p>
+
+      <!-- Date + Time block -->
+      <div class="event-block">
+        <div class="event-row">
+          <div>
+            <span class="event-label">Date</span>
+            <div class="event-value">Wednesday, 25th March</div>
+            <div class="event-sub">2026 · Panguni — Auspicious Day</div>
+          </div>
+          <div class="event-divider"></div>
+          <div>
+            <span class="event-label">Time</span>
+            <div class="event-value">10:00 AM — 2:00 PM</div>
+            <div class="event-sub">Doors open from 9:30 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section divider -->
+      <div class="section-divider">
+        <div class="div-line"></div>
+        <svg class="div-icon" width="14" height="14" viewBox="0 0 14 14">
+          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="7" cy="7" r="2" fill="currentColor"/>
+        </svg>
+        <div class="div-line r"></div>
+      </div>
+
+      <!-- Location -->
+      <div class="location-block">
+        <div class="location-title">Venue</div>
+        <div class="location-name">Madurai</div>
+        <div class="location-city">Tamil Nadu, South India</div>
+
+        <a href="https://maps.app.goo.gl/FPFabB8mHE2pD5b9A" target="_blank" class="map-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Get Directions
+        </a>
+      </div>
+
+      <!-- Section divider -->
+      <div class="section-divider">
+        <div class="div-line"></div>
+        <svg class="div-icon" width="14" height="14" viewBox="0 0 14 14">
+          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="7" cy="7" r="2" fill="currentColor"/>
+        </svg>
+        <div class="div-line r"></div>
+      </div>
+
+      <!-- Closing note -->
+      <p style="font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--text-mid); font-style:italic; line-height:1.8;">
+        Your presence and blessings will make<br>this occasion truly memorable.<br>
+        <strong style="color:var(--maroon); font-style:normal; font-weight:500;">We warmly welcome you.</strong>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    <div class="footer-text">
+      Kindly grace us with your presence &amp; blessings
+    </div>
+    <div class="footer-tamil">நல்வாழ்த்துக்கள் — Best Wishes</div>
+  </div>
+
+  <!-- Bottom accent band -->
+  <div class="bottom-band"></div>
+
+</div>
+
+</body>
+</html>
