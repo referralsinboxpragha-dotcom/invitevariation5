@@ -10,24 +10,30 @@
 
 <style>
   :root {
-    --gold: #C9974A;
-    --gold-light: #E8C27A;
-    --gold-pale: #F5E6C8;
-    --deep: #1A0F08;
-    --maroon: #6B1A1A;
-    --maroon-soft: #8B3A3A;
-    --cream: #FAF5EC;
-    --ivory: #FDF9F2;
-    --text-dark: #2C1810;
-    --text-mid: #5A3C2A;
+    --gold: #D4A017;
+    --gold-light: #F0C842;
+    --gold-pale: #FFF3C4;
+    --deep: #0D0820;
+    --royal: #1E0B5C;
+    --royal-mid: #2D1680;
+    --royal-soft: #4A2FAD;
+    --teal: #0E6B6B;
+    --teal-light: #1A9090;
+    --peacock: #0A7A6A;
+    --peacock-bright: #12A88E;
+    --cream: #FFFBEF;
+    --ivory: #FFFDF5;
+    --text-dark: #1A0E3A;
+    --text-mid: #3B2870;
+    --saffron: #E8851A;
+    --saffron-light: #F5A940;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    background: #0e0a06;
+    background: radial-gradient(ellipse at center, #0a0520 0%, #060310 100%);
     font-family: 'Jost', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -36,59 +42,98 @@
     padding: 20px;
   }
 
-  /* ── CARD ── */
+  /* Floating stars background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(212,160,23,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(240,200,66,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 70%, rgba(212,160,23,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(240,200,66,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 50%, rgba(212,160,23,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 45% 20%, rgba(240,200,66,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 85%, rgba(212,160,23,0.3) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .card {
     position: relative;
     width: 100%;
-    max-width: 540px;
+    max-width: 560px;
     background: var(--ivory);
     overflow: hidden;
     box-shadow:
-      0 0 0 1px rgba(201,151,74,0.4),
-      0 0 40px rgba(201,151,74,0.15),
-      0 40px 120px rgba(0,0,0,0.8);
-    animation: cardReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      0 0 0 1px rgba(212,160,23,0.5),
+      0 0 0 3px rgba(30,11,92,0.6),
+      0 0 60px rgba(212,160,23,0.2),
+      0 60px 160px rgba(0,0,0,0.9);
+    animation: cardReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    z-index: 1;
   }
 
   @keyframes cardReveal {
-    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    from { opacity: 0; transform: translateY(40px) scale(0.96); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* ── TOP DECORATIVE BAND ── */
+  /* ── TOP BAND ── */
   .top-band {
-    background: var(--maroon);
-    height: 6px;
-    background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--maroon) 100%);
+    height: 7px;
+    background: linear-gradient(90deg, var(--royal) 0%, var(--saffron) 25%, var(--gold-light) 50%, var(--saffron) 75%, var(--royal) 100%);
+  }
+
+  /* ── KRISHNA BLESSING BANNER ── */
+  .krishna-banner {
+    background: #0a0618;
+    padding: 10px 32px 9px;
+    text-align: center;
+    border-bottom: 1px solid rgba(212,160,23,0.12);
+  }
+
+  .krishna-blessing-text {
+    font-family: 'Cinzel', serif;
+    color: rgba(212,160,23,0.42);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.2s both;
   }
 
   /* ── HERO ── */
   .hero {
-    background: linear-gradient(170deg, #1A0F08 0%, #2e1810 50%, #1a0a08 100%);
-    padding: 44px 32px 36px;
+    background: linear-gradient(170deg, #0d0820 0%, #1a0e46 35%, #0e1a3a 70%, #070520 100%);
+    padding: 40px 32px 34px;
     position: relative;
     overflow: hidden;
   }
 
-  /* Mandala background watermark */
+  /* Concentric ring watermark */
   .hero::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 360px;
-    height: 360px;
-    background: radial-gradient(circle, rgba(201,151,74,0.07) 0%, transparent 70%);
+    width: 400px;
+    height: 400px;
+    background:
+      radial-gradient(circle at center, transparent 20%, rgba(212,160,23,0.04) 25%, transparent 30%),
+      radial-gradient(circle at center, transparent 35%, rgba(212,160,23,0.035) 40%, transparent 45%),
+      radial-gradient(circle at center, transparent 50%, rgba(212,160,23,0.03) 55%, transparent 60%),
+      radial-gradient(circle at center, rgba(212,160,23,0.05) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  /* SVG kolam / geometric pattern overlay */
+  /* Geometric pattern overlay */
   .hero-pattern {
     position: absolute;
     inset: 0;
-    opacity: 0.06;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 4 L76 40 L40 76 L4 40 Z' fill='none' stroke='%23C9974A' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='24' fill='none' stroke='%23C9974A' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%23C9974A' stroke-width='0.5'/%3E%3Cpath d='M40 16 L40 64 M16 40 L64 40' stroke='%23C9974A' stroke-width='0.4'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 4 L76 40 L40 76 L4 40 Z' fill='none' stroke='%23D4A017' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='24' fill='none' stroke='%23D4A017' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%23D4A017' stroke-width='0.5'/%3E%3Cpath d='M40 16 L40 64 M16 40 L64 40' stroke='%23D4A017' stroke-width='0.4'/%3E%3C/svg%3E");
     background-size: 80px 80px;
   }
 
@@ -98,14 +143,13 @@
     text-align: center;
   }
 
-  /* Ornamental top divider */
   .ornament-top {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 20px;
-    animation: fadeUp 1s 0.3s both;
+    margin-bottom: 18px;
+    animation: fadeUp 1s 0.4s both;
   }
 
   .ornament-line {
@@ -117,27 +161,9 @@
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  .ornament-diamond {
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    transform: rotate(45deg);
-  }
-
-  .blessing-text {
-    font-family: 'Noto Serif Tamil', serif;
-    color: var(--gold-light);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    font-weight: 300;
-    margin-bottom: 24px;
-    animation: fadeUp 1s 0.4s both;
-    opacity: 0.85;
-  }
-
   .announce-label {
     font-family: 'Cinzel', serif;
-    color: var(--gold);
+    color: var(--saffron-light);
     font-size: 9.5px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
@@ -145,7 +171,6 @@
     animation: fadeUp 1s 0.5s both;
   }
 
-  /* Names */
   .names-block {
     animation: fadeUp 1s 0.6s both;
   }
@@ -155,9 +180,10 @@
     font-weight: 300;
     font-style: italic;
     color: var(--gold-pale);
-    font-size: clamp(38px, 9vw, 52px);
+    font-size: clamp(38px, 9vw, 54px);
     line-height: 1.05;
     letter-spacing: 0.01em;
+    text-shadow: 0 0 40px rgba(212,160,23,0.3);
   }
 
   .name-primary span {
@@ -169,44 +195,44 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    color: var(--gold);
-    font-size: clamp(28px, 6vw, 36px);
+    color: var(--saffron-light);
+    font-size: clamp(28px, 6vw, 38px);
     display: block;
     line-height: 1.2;
     margin: 4px 0;
+    text-shadow: 0 0 20px rgba(232,133,26,0.5);
   }
 
-  /* Lotus / floral SVG divider */
+  /* Enhanced lotus with teal/peacock colors */
   .lotus-divider {
     margin: 22px auto 0;
     display: block;
     animation: fadeUp 1s 0.8s both;
+    filter: drop-shadow(0 0 8px rgba(18,168,142,0.3));
   }
 
   /* ── BODY ── */
   .body-section {
-    background: var(--ivory);
+    background: linear-gradient(180deg, #FFFDF5 0%, #FFF9E8 100%);
     padding: 36px 36px 28px;
     position: relative;
   }
 
-  /* Inner border frame */
   .body-section::before {
     content: '';
     position: absolute;
     inset: 12px;
-    border: 1px solid rgba(201,151,74,0.2);
+    border: 1px solid rgba(212,160,23,0.25);
     pointer-events: none;
   }
 
-  /* Corner ornaments */
   .corner {
     position: absolute;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-color: var(--gold);
     border-style: solid;
-    opacity: 0.5;
+    opacity: 0.6;
   }
   .corner.tl { top: 8px; left: 8px; border-width: 1.5px 0 0 1.5px; }
   .corner.tr { top: 8px; right: 8px; border-width: 1.5px 1.5px 0 0; }
@@ -223,16 +249,16 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 15.5px;
     color: var(--text-mid);
-    line-height: 1.8;
+    line-height: 1.85;
     font-weight: 400;
     margin-bottom: 28px;
     animation: fadeUp 1s 0.9s both;
   }
 
-  /* ── DATE / TIME BLOCK ── */
+  /* ── EVENT BLOCK ── */
   .event-block {
-    background: linear-gradient(135deg, #f9f3e8 0%, #fdf8f0 100%);
-    border: 1px solid rgba(201,151,74,0.3);
+    background: linear-gradient(135deg, #f5edff 0%, #e8f0ff 50%, #f5edff 100%);
+    border: 1px solid rgba(74,47,173,0.25);
     padding: 24px 20px;
     margin-bottom: 20px;
     position: relative;
@@ -243,7 +269,7 @@
     content: '';
     position: absolute;
     inset: 3px;
-    border: 1px solid rgba(201,151,74,0.12);
+    border: 1px solid rgba(212,160,23,0.15);
     pointer-events: none;
   }
 
@@ -256,17 +282,11 @@
   }
   .event-row:last-child { margin-bottom: 0; }
 
-  .event-icon {
-    color: var(--gold);
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
   .event-label {
     font-family: 'Cinzel', serif;
     font-size: 8.5px;
     letter-spacing: 0.3em;
-    color: var(--gold);
+    color: var(--royal-soft);
     text-transform: uppercase;
     display: block;
     margin-bottom: 3px;
@@ -292,7 +312,7 @@
   .event-divider {
     width: 1px;
     height: 36px;
-    background: linear-gradient(to bottom, transparent, rgba(201,151,74,0.4), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(74,47,173,0.35), transparent);
     flex-shrink: 0;
   }
 
@@ -306,7 +326,7 @@
     font-family: 'Cinzel', serif;
     font-size: 8.5px;
     letter-spacing: 0.3em;
-    color: var(--gold);
+    color: var(--royal-soft);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
@@ -333,16 +353,16 @@
     align-items: center;
     gap: 8px;
     margin-top: 14px;
-    background: var(--maroon);
+    background: linear-gradient(135deg, var(--royal) 0%, var(--royal-mid) 100%);
     color: var(--gold-pale);
     text-decoration: none;
-    padding: 10px 22px;
+    padding: 11px 24px;
     font-family: 'Cinzel', serif;
     font-size: 9px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    border: 1px solid rgba(201,151,74,0.3);
+    border: 1px solid rgba(212,160,23,0.4);
     position: relative;
     overflow: hidden;
   }
@@ -351,14 +371,14 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
     transform: translateX(-100%);
     transition: transform 0.5s ease;
   }
 
   .map-btn:hover {
-    background: #7a2020;
-    box-shadow: 0 4px 20px rgba(107,26,26,0.3);
+    background: linear-gradient(135deg, var(--royal-mid) 0%, var(--royal-soft) 100%);
+    box-shadow: 0 4px 24px rgba(30,11,92,0.45);
   }
 
   .map-btn:hover::before { transform: translateX(100%); }
@@ -369,7 +389,7 @@
     fill: var(--gold-light);
   }
 
-  /* ── DIVIDER ORNAMENT ── */
+  /* ── SECTION DIVIDER ── */
   .section-divider {
     display: flex;
     align-items: center;
@@ -381,36 +401,32 @@
   .div-line {
     height: 1px;
     flex: 1;
-    background: linear-gradient(90deg, transparent, rgba(201,151,74,0.4));
+    background: linear-gradient(90deg, transparent, rgba(74,47,173,0.35));
   }
-  .div-line.r { background: linear-gradient(90deg, rgba(201,151,74,0.4), transparent); }
-
-  .div-icon {
-    color: var(--gold);
-    font-size: 14px;
-  }
+  .div-line.r { background: linear-gradient(90deg, rgba(74,47,173,0.35), transparent); }
 
   /* ── FOOTER ── */
   .footer {
-    background: var(--maroon);
-    padding: 20px 32px;
+    background: linear-gradient(135deg, #0d0820 0%, #1a0e46 50%, #0a0618 100%);
+    padding: 22px 32px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(212,160,23,0.3);
   }
 
   .footer::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201,151,74,0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center bottom, rgba(212,160,23,0.08) 0%, transparent 70%);
   }
 
   .footer-text {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: rgba(245,230,200,0.75);
-    font-size: 13px;
+    color: rgba(255,243,196,0.8);
+    font-size: 13.5px;
     line-height: 1.7;
     position: relative;
   }
@@ -425,16 +441,36 @@
     opacity: 0.9;
   }
 
+  .footer-krishna {
+    font-family: 'Cinzel', serif;
+    color: var(--peacock-bright);
+    font-size: 8px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-top: 10px;
+    position: relative;
+    opacity: 0.7;
+  }
+
   /* ── BOTTOM BAND ── */
   .bottom-band {
-    height: 6px;
-    background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--maroon) 100%);
+    height: 7px;
+    background: linear-gradient(90deg, var(--royal) 0%, var(--saffron) 25%, var(--gold-light) 50%, var(--saffron) 75%, var(--royal) 100%);
   }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .flute-glow {
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   /* ── RESPONSIVE ── */
@@ -446,7 +482,7 @@
     .event-divider { width: 40px; height: 1px; }
     .footer { padding: 18px 24px; }
     .body-section::before { inset: 8px; }
-    .map-btn { padding: 10px 18px; }
+    .krishna-banner { padding: 14px 24px 12px; }
   }
 
   @media (min-width: 600px) {
@@ -461,6 +497,11 @@
   <!-- Top accent band -->
   <div class="top-band"></div>
 
+  <!-- ═══ KRISHNA BLESSING BANNER ═══ -->
+  <div class="krishna-banner">
+    <div class="krishna-blessing-text">With the Blessings of Lord Krishna</div>
+  </div>
+
   <!-- ═══ HERO ═══ -->
   <div class="hero">
     <div class="hero-pattern"></div>
@@ -469,16 +510,15 @@
       <!-- Top ornament -->
       <div class="ornament-top">
         <div class="ornament-line"></div>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
-          <path d="M12 2 C12 2 14 6 12 8 C10 6 12 2 12 2Z M12 22 C12 22 10 18 12 16 C14 18 12 22 12 22Z M2 12 C2 12 6 10 8 12 C6 14 2 12 2 12Z M22 12 C22 12 18 14 16 12 C18 10 22 12 22 12Z" fill="#C9974A" opacity="0.9"/>
-          <circle cx="12" cy="12" r="3" fill="#C9974A" opacity="0.6"/>
-          <circle cx="12" cy="12" r="1.5" fill="#E8C27A"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+          <path d="M12 2 C12 2 14 6 12 8 C10 6 12 2 12 2Z M12 22 C12 22 10 18 12 16 C14 18 12 22 12 22Z M2 12 C2 12 6 10 8 12 C6 14 2 12 2 12Z M22 12 C22 12 18 14 16 12 C18 10 22 12 22 12Z" fill="#D4A017" opacity="0.9"/>
+          <circle cx="12" cy="12" r="3" fill="#D4A017" opacity="0.5"/>
+          <circle cx="12" cy="12" r="1.5" fill="#F0C842"/>
+          <!-- Diagonal petals -->
+          <path d="M6 6 C6 6 8.5 8 8 10 C7 8 6 6 6 6Z M18 6 C18 6 16 8 16 10 C17.5 8 18 6 18 6Z M6 18 C6 18 8 16.5 10 16 C8 17.5 6 18 6 18Z M18 18 C18 18 16 16 16 14 C17 16 18 18 18 18Z" fill="#F5A940" opacity="0.7"/>
         </svg>
         <div class="ornament-line right"></div>
       </div>
-
-      <!-- Tamil blessing -->
-      <div class="blessing-text">ஓம் நமசிவாய — With Blessings of the Almighty</div>
 
       <!-- Announce label -->
       <div class="announce-label">Joyfully announce</div>
@@ -490,21 +530,27 @@
         <div class="name-primary"><span>Shalini Devi</span></div>
       </div>
 
-      <!-- Lotus SVG -->
-      <svg class="lotus-divider" width="120" height="32" viewBox="0 0 120 32" fill="none">
-        <!-- Left petal group -->
-        <path d="M28 22 Q20 8 32 4 Q30 14 38 18" fill="rgba(201,151,74,0.2)" stroke="#C9974A" stroke-width="0.8"/>
-        <path d="M22 24 Q12 12 22 6 Q22 18 32 20" fill="rgba(201,151,74,0.12)" stroke="#C9974A" stroke-width="0.6"/>
-        <!-- Center -->
-        <path d="M48 24 Q44 8 60 4 Q76 8 72 24" fill="rgba(201,151,74,0.18)" stroke="#C9974A" stroke-width="0.9"/>
-        <path d="M53 24 Q50 12 60 8 Q70 12 67 24" fill="rgba(201,151,74,0.25)" stroke="#C9974A" stroke-width="0.8"/>
-        <!-- Right petal group -->
-        <path d="M92 22 Q100 8 88 4 Q90 14 82 18" fill="rgba(201,151,74,0.2)" stroke="#C9974A" stroke-width="0.8"/>
-        <path d="M98 24 Q108 12 98 6 Q98 18 88 20" fill="rgba(201,151,74,0.12)" stroke="#C9974A" stroke-width="0.6"/>
-        <!-- Stem line -->
-        <line x1="60" y1="24" x2="60" y2="32" stroke="#C9974A" stroke-width="0.8" opacity="0.5"/>
-        <!-- Center dot -->
-        <circle cx="60" cy="20" r="2.5" fill="#C9974A" opacity="0.7"/>
+      <!-- Enhanced Lotus SVG with teal/peacock palette -->
+      <svg class="lotus-divider" width="130" height="36" viewBox="0 0 130 36" fill="none">
+        <!-- Outer left petals -->
+        <path d="M30 26 Q20 10 34 4 Q32 16 42 20" fill="rgba(18,168,142,0.18)" stroke="#12A88E" stroke-width="0.9"/>
+        <path d="M23 27 Q11 14 24 6 Q24 20 36 22" fill="rgba(18,168,142,0.1)" stroke="#1A9090" stroke-width="0.6"/>
+        <!-- Center petals -->
+        <path d="M50 27 Q46 10 65 4 Q84 10 80 27" fill="rgba(212,160,23,0.15)" stroke="#D4A017" stroke-width="1"/>
+        <path d="M55 27 Q52 14 65 8 Q78 14 75 27" fill="rgba(212,160,23,0.22)" stroke="#D4A017" stroke-width="0.9"/>
+        <!-- Inner center -->
+        <path d="M59 27 Q57 18 65 13 Q73 18 71 27" fill="rgba(240,200,66,0.3)" stroke="#F0C842" stroke-width="0.8"/>
+        <!-- Outer right petals -->
+        <path d="M100 26 Q110 10 96 4 Q98 16 88 20" fill="rgba(18,168,142,0.18)" stroke="#12A88E" stroke-width="0.9"/>
+        <path d="M107 27 Q119 14 106 6 Q106 20 94 22" fill="rgba(18,168,142,0.1)" stroke="#1A9090" stroke-width="0.6"/>
+        <!-- Stem -->
+        <line x1="65" y1="27" x2="65" y2="36" stroke="#D4A017" stroke-width="0.9" opacity="0.5"/>
+        <!-- Center jewel -->
+        <circle cx="65" cy="22" r="3.5" fill="rgba(212,160,23,0.2)" stroke="#D4A017" stroke-width="0.8"/>
+        <circle cx="65" cy="22" r="1.8" fill="#F0C842" opacity="0.8"/>
+        <!-- Small side accents -->
+        <circle cx="44" cy="24" r="1.2" fill="#12A88E" opacity="0.5"/>
+        <circle cx="86" cy="24" r="1.2" fill="#12A88E" opacity="0.5"/>
       </svg>
 
     </div>
@@ -524,7 +570,7 @@
         The families of Praghadeesh and Shalini<br>
         joyfully invite you to celebrate<br>
         the auspicious occasion of their
-        <em style="color:var(--maroon-soft); font-size:1.05em;">Engagement Ceremony</em>
+        <em style="color:var(--royal-soft); font-size:1.05em;">Engagement Ceremony</em>
       </p>
 
       <!-- Date + Time block -->
@@ -547,9 +593,9 @@
       <!-- Section divider -->
       <div class="section-divider">
         <div class="div-line"></div>
-        <svg class="div-icon" width="14" height="14" viewBox="0 0 14 14">
-          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-          <circle cx="7" cy="7" r="2" fill="currentColor"/>
+        <svg width="14" height="14" viewBox="0 0 14 14">
+          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="rgba(74,47,173,0.5)" stroke-width="1"/>
+          <circle cx="7" cy="7" r="2" fill="rgba(74,47,173,0.4)"/>
         </svg>
         <div class="div-line r"></div>
       </div>
@@ -571,17 +617,17 @@
       <!-- Section divider -->
       <div class="section-divider">
         <div class="div-line"></div>
-        <svg class="div-icon" width="14" height="14" viewBox="0 0 14 14">
-          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-          <circle cx="7" cy="7" r="2" fill="currentColor"/>
+        <svg width="14" height="14" viewBox="0 0 14 14">
+          <path d="M7 1 L13 7 L7 13 L1 7 Z" fill="none" stroke="rgba(74,47,173,0.5)" stroke-width="1"/>
+          <circle cx="7" cy="7" r="2" fill="rgba(74,47,173,0.4)"/>
         </svg>
         <div class="div-line r"></div>
       </div>
 
       <!-- Closing note -->
       <p style="font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--text-mid); font-style:italic; line-height:1.8;">
-        Your presence and blessings will make<br>this occasion truly memorable.<br>
-        <strong style="color:var(--maroon); font-style:normal; font-weight:500;">We warmly welcome you.</strong>
+        Your presence is the greatest gift<br>you could bring to this occasion.<br>
+        <strong style="color:var(--royal); font-style:normal; font-weight:500;">We warmly welcome you.</strong>
       </p>
 
     </div>
@@ -590,7 +636,7 @@
   <!-- ═══ FOOTER ═══ -->
   <div class="footer">
     <div class="footer-text">
-      Kindly grace us with your presence &amp; blessings
+      Your presence is all we ask for
     </div>
     <div class="footer-tamil">நல்வாழ்த்துக்கள் — Best Wishes</div>
   </div>
