@@ -6,7 +6,7 @@
 <title>Praghadeesh & Shalini — Engagement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Tamil:wght@300;400;500&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Tamil:wght@300;400;500&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&family=GFS+Didot&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -84,8 +84,6 @@
     height: 7px;
     background: linear-gradient(90deg, var(--royal) 0%, var(--saffron) 25%, var(--gold-light) 50%, var(--saffron) 75%, var(--royal) 100%);
   }
-
-
 
   /* ── HERO ── */
   .hero {
@@ -242,8 +240,8 @@
   /* ── EVENT BLOCK ── */
   .event-block {
     background: linear-gradient(135deg, #f5edff 0%, #e8f0ff 50%, #f5edff 100%);
-    border: 1px solid rgba(74,47,173,0.25);
-    padding: 24px 20px;
+    border: 1px solid rgba(74,47,173,0.22);
+    padding: 22px 20px;
     margin-bottom: 20px;
     position: relative;
     animation: fadeUp 1s 1s both;
@@ -252,8 +250,8 @@
   .event-block::after {
     content: '';
     position: absolute;
-    inset: 3px;
-    border: 1px solid rgba(212,160,23,0.15);
+    inset: 4px;
+    border: 1px solid rgba(212,160,23,0.18);
     pointer-events: none;
   }
 
@@ -261,43 +259,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 0;
   }
-  .event-row:last-child { margin-bottom: 0; }
+
+  .event-col {
+    flex: 1;
+    text-align: center;
+    padding: 0 14px;
+  }
 
   .event-label {
     font-family: 'Cinzel', serif;
-    font-size: 8.5px;
-    letter-spacing: 0.3em;
+    font-size: 7.5px;
+    letter-spacing: 0.36em;
     color: var(--royal-soft);
     text-transform: uppercase;
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
+    opacity: 0.75;
   }
 
   .event-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
+    font-family: 'GFS Didot', serif;
+    font-size: 16px;
     color: var(--text-dark);
-    font-weight: 500;
-    line-height: 1.2;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
   }
 
   .event-sub {
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11.5px;
     color: var(--text-mid);
+    font-style: italic;
     font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-top: 2px;
+    letter-spacing: 0.02em;
+    margin-top: 6px;
+    line-height: 1.5;
   }
 
   .event-divider {
     width: 1px;
-    height: 36px;
-    background: linear-gradient(to bottom, transparent, rgba(74,47,173,0.35), transparent);
+    height: 44px;
+    background: linear-gradient(to bottom, transparent, rgba(74,47,173,0.3), transparent);
     flex-shrink: 0;
+    align-self: center;
   }
 
   /* ── LOCATION ── */
@@ -425,17 +432,6 @@
     opacity: 0.9;
   }
 
-  .footer-krishna {
-    font-family: 'Cinzel', serif;
-    color: var(--peacock-bright);
-    font-size: 8px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    margin-top: 10px;
-    position: relative;
-    opacity: 0.7;
-  }
-
   /* ── BOTTOM BAND ── */
   .bottom-band {
     height: 7px;
@@ -466,7 +462,6 @@
     .event-divider { width: 40px; height: 1px; }
     .footer { padding: 18px 24px; }
     .body-section::before { inset: 8px; }
-    .krishna-banner { padding: 14px 24px 12px; }
   }
 
   @media (min-width: 600px) {
@@ -486,7 +481,7 @@
     <div class="hero-pattern"></div>
     <div class="hero-inner">
 
-      <!-- Krishna blessing — quiet, sits within the dark hero -->
+      <!-- Krishna blessing -->
       <div style="font-family:'Cinzel',serif; font-size:8px; letter-spacing:0.3em; color:rgba(212,160,23,0.85); text-transform:uppercase; margin-bottom:14px; animation: fadeUp 1s 0.2s both;">
         With the Blessings of Lord Krishna
       </div>
@@ -498,7 +493,6 @@
           <path d="M12 2 C12 2 14 6 12 8 C10 6 12 2 12 2Z M12 22 C12 22 10 18 12 16 C14 18 12 22 12 22Z M2 12 C2 12 6 10 8 12 C6 14 2 12 2 12Z M22 12 C22 12 18 14 16 12 C18 10 22 12 22 12Z" fill="#D4A017" opacity="0.9"/>
           <circle cx="12" cy="12" r="3" fill="#D4A017" opacity="0.5"/>
           <circle cx="12" cy="12" r="1.5" fill="#F0C842"/>
-          <!-- Diagonal petals -->
           <path d="M6 6 C6 6 8.5 8 8 10 C7 8 6 6 6 6Z M18 6 C18 6 16 8 16 10 C17.5 8 18 6 18 6Z M6 18 C6 18 8 16.5 10 16 C8 17.5 6 18 6 18Z M18 18 C18 18 16 16 16 14 C17 16 18 18 18 18Z" fill="#F5A940" opacity="0.7"/>
         </svg>
         <div class="ornament-line right"></div>
@@ -514,25 +508,18 @@
         <div class="name-primary"><span>Shalini Devi</span></div>
       </div>
 
-      <!-- Enhanced Lotus SVG with teal/peacock palette -->
+      <!-- Enhanced Lotus SVG -->
       <svg class="lotus-divider" width="130" height="36" viewBox="0 0 130 36" fill="none">
-        <!-- Outer left petals -->
         <path d="M30 26 Q20 10 34 4 Q32 16 42 20" fill="rgba(18,168,142,0.18)" stroke="#12A88E" stroke-width="0.9"/>
         <path d="M23 27 Q11 14 24 6 Q24 20 36 22" fill="rgba(18,168,142,0.1)" stroke="#1A9090" stroke-width="0.6"/>
-        <!-- Center petals -->
         <path d="M50 27 Q46 10 65 4 Q84 10 80 27" fill="rgba(212,160,23,0.15)" stroke="#D4A017" stroke-width="1"/>
         <path d="M55 27 Q52 14 65 8 Q78 14 75 27" fill="rgba(212,160,23,0.22)" stroke="#D4A017" stroke-width="0.9"/>
-        <!-- Inner center -->
         <path d="M59 27 Q57 18 65 13 Q73 18 71 27" fill="rgba(240,200,66,0.3)" stroke="#F0C842" stroke-width="0.8"/>
-        <!-- Outer right petals -->
         <path d="M100 26 Q110 10 96 4 Q98 16 88 20" fill="rgba(18,168,142,0.18)" stroke="#12A88E" stroke-width="0.9"/>
         <path d="M107 27 Q119 14 106 6 Q106 20 94 22" fill="rgba(18,168,142,0.1)" stroke="#1A9090" stroke-width="0.6"/>
-        <!-- Stem -->
         <line x1="65" y1="27" x2="65" y2="36" stroke="#D4A017" stroke-width="0.9" opacity="0.5"/>
-        <!-- Center jewel -->
         <circle cx="65" cy="22" r="3.5" fill="rgba(212,160,23,0.2)" stroke="#D4A017" stroke-width="0.8"/>
         <circle cx="65" cy="22" r="1.8" fill="#F0C842" opacity="0.8"/>
-        <!-- Small side accents -->
         <circle cx="44" cy="24" r="1.2" fill="#12A88E" opacity="0.5"/>
         <circle cx="86" cy="24" r="1.2" fill="#12A88E" opacity="0.5"/>
       </svg>
@@ -560,16 +547,16 @@
       <!-- Date + Time block -->
       <div class="event-block">
         <div class="event-row">
-          <div>
+          <div class="event-col">
             <span class="event-label">Date</span>
             <div class="event-value">Wednesday, 25th March</div>
-            <div class="event-sub">2026 · Panguni — Auspicious Day</div>
+            <div class="event-sub">2026 · Panguni · Auspicious Day</div>
           </div>
           <div class="event-divider"></div>
-          <div>
+          <div class="event-col">
             <span class="event-label">Time</span>
             <div class="event-value">9:00 AM — 11:00 AM</div>
-            <div class="event-sub">Doors open from 8:30 AM</div>
+            <div class="event-sub">Arrive with joy in your heart</div>
           </div>
         </div>
       </div>
